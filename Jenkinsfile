@@ -19,10 +19,9 @@ pipeline {
             agent any
             
             steps {
-                echo "Lets start Long Journey! ENV: ${ENV}"
                 echo 'Clonning Repository'
 
-                git url: 'https://github.com/frontalnh/temp.git',
+                git url: 'https://github.com/KJongHyun/temp.git',
                     branch: 'master',
                     credentialsId: 'jenkins'
             }
@@ -140,7 +139,6 @@ pipeline {
 
             dir ('./server'){
                 sh '''
-                docker rm -f $(docker ps -aq)
                 docker run -p 80:80 -d server
                 '''
             }
